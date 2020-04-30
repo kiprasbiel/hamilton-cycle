@@ -125,3 +125,4 @@ g1.hamCycle()
 
 time1 = (time.time() - start_time)
 print("Laikas: " + str(time1) + "s")
+print("Spauskite enter noredami uzdaryti")
