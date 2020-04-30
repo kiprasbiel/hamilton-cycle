@@ -2,15 +2,21 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import numpy
 import sys
+from tempfile import TemporaryFile
 numpy.set_printoptions(threshold=sys.maxsize)
 
-G = nx.random_geometric_graph(200, 0.125)
+G = nx.random_geometric_graph(15, 0.4)
 
 A = nx.adjacency_matrix(G)
 matrica = A.todense()
-file = open("matrica.txt", "w")
-file.write(str(matrica))
-file.close()
+
+numpy.save("matrica", matrica)
+
+# file = open("matrica.txt", "w")
+# matrica_str = str(matrica).replace(" ", ", ").replace("]", "],")
+# file.write(matrica_str)
+# file.close()
+
 # position is stored as node attribute data for random_geometric_graph
 pos = nx.get_node_attributes(G, 'pos')
 
@@ -23,7 +29,6 @@ for n in pos:
     if d < dmin:
         ncenter = n
         dmin = d
-print(ncenter)
 # color by path length from node near center
 p = dict(nx.single_source_shortest_path_length(G, ncenter))
 
