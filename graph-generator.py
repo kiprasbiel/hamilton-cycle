@@ -4,7 +4,7 @@ import numpy
 import sys
 numpy.set_printoptions(threshold=sys.maxsize)
 
-G = nx.random_geometric_graph(30, 0.4)
+G = nx.random_geometric_graph(30, 0.2)
 
 A = nx.adjacency_matrix(G)
 matrica = A.todense()
