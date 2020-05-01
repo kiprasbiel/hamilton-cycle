@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import numpy
 import sys
-from tempfile import TemporaryFile
 numpy.set_printoptions(threshold=sys.maxsize)
 
 G = nx.random_geometric_graph(15, 0.4)
@@ -11,11 +10,6 @@ A = nx.adjacency_matrix(G)
 matrica = A.todense()
 
 numpy.save("matrica", matrica)
-
-# file = open("matrica.txt", "w")
-# matrica_str = str(matrica).replace(" ", ", ").replace("]", "],")
-# file.write(matrica_str)
-# file.close()
 
 # position is stored as node attribute data for random_geometric_graph
 pos = nx.get_node_attributes(G, 'pos')
