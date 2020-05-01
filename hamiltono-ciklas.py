@@ -37,6 +37,7 @@ class Graph():
             if self.isSafe(v, pos, path) == True:
 
                 path[pos] = v
+                print(path, end='\r')
 
                 if self.hamCycleUtil(path, pos + 1) == True:
                     return True
@@ -78,3 +79,8 @@ g1.hamCycle()
 time1 = (time.time() - start_time)
 print("Laikas: " + str(time1) + "s")
 print("Spauskite enter noredami uzdaryti")
+
+
+
+
+
